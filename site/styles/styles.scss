@@ -1,0 +1,525 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+//variables
+
+$red: #d31145;
+$yellow: #f0e68c;
+$green: #00dfa2;
+$blue: #0079ff;
+
+//mixins
+
+@mixin headlines {
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+
+@mixin subheadlines {
+  font-family: "Montserrat";
+  font-weight: 600;
+}
+
+@mixin copy {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background: $yellow;
+  z-index: 99999;
+  .logo {
+    width: 200px;
+    height: auto;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      list-style: none;
+      @include subheadlines();
+      padding-left: 3rem;
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}
+
+.title {
+  height: 100vh;
+  background: $red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    @include headlines();
+    margin: 0;
+    font-size: 12rem;
+    line-height: 12rem;
+    color: #ffffff;
+    z-index: 99999;
+    span {
+      font-weight: 900;
+    }
+  }
+}
+
+.home {
+  z-index: 2;
+  .green-circle {
+    border-radius: 50%;
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+    border: 150px solid $green;
+    top: 7rem;
+    left: 15rem;
+    animation: circles 1s 2s both;
+  }
+
+  .yellow-circle {
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    border: 70px solid $yellow;
+    top: 60rem;
+    left: 15rem;
+    animation: circles 1s 3s both;
+  }
+
+  .blue-circle {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    border: 50px solid $blue;
+    top: 20rem;
+    left: 90rem;
+    animation: circles 1s 4s both;
+  }
+}
+
+.mobile-nav {
+  display: none;
+}
+
+//Business Page
+
+.title-business {
+  background: $red;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: headline-appear 1s 1s both;
+  h1 {
+    @include headlines();
+    margin: 0;
+    font-size: 12rem;
+    line-height: 12rem;
+    color: #ffffff;
+    z-index: 99999;
+    span {
+      font-weight: 900;
+    }
+  }
+}
+
+.wrapper {
+  width: 70%;
+  // border: 1px solid red;
+  margin: 0 auto;
+}
+
+.company {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  h2 {
+    background: $yellow;
+    padding: 0.5rem;
+    margin: 0;
+    @include subheadlines();
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+  .description {
+    width: 65%;
+    margin-left: 1rem;
+    // border: 1px solid red;
+    p {
+      margin: 0;
+      font-size: 2rem;
+      @include copy();
+    }
+  }
+}
+
+.divider {
+  margin: 7rem 0;
+  height: 0.3rem;
+  background: $red;
+  border: none;
+}
+
+.img {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 5rem 0 0 0;
+  gap: rem;
+  img {
+    width: 14rem;
+  }
+}
+
+.competitor-img {
+  margin-bottom: 5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+// .business {
+//   z-index: 99999999;
+//   .green-circle {
+//     z-index: -99999;
+//     left: -30px;
+//   }
+
+//   .yellow-circle {
+//     z-index: -99999;
+//     left: -30px;
+//     top: 2200px;
+//   }
+
+//   .blue-circle {
+//     z-index: -99999;
+//     left: 1700px;
+//     top: 1500px;
+//   }
+// }
+
+//Financial Report page
+
+.summary {
+  margin-top: 5rem;
+  p {
+    @include copy();
+    font-size: 1.8rem;
+  }
+}
+
+.infographics {
+  margin: 8rem 0;
+  text-align: center;
+  h1 {
+    @include headlines();
+    font-size: 2.5rem;
+  }
+}
+
+.info {
+  text-align: center;
+  margin-top: 5rem;
+  display: flex;
+  h1 {
+    @include headlines();
+    font-size: 2rem;
+    margin: 0;
+  }
+  p {
+    @include copy();
+    margin: 0;
+  }
+  .stats {
+    padding: 0 5rem;
+    h1 {
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 3rem;
+    }
+  }
+}
+
+.stats-one,
+.stats-two {
+  h1 {
+    background: $green;
+    padding: 1rem;
+  }
+}
+
+.stats-three,
+.stats-four {
+  h1 {
+    background: $yellow;
+    padding: 1rem;
+  }
+}
+
+.stats-five,
+.stats-six {
+  h1 {
+    background: $blue;
+    padding: 1rem;
+  }
+}
+
+@keyframes circles {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes headline-appear {
+  from {
+    transform: translatey(-2000px);
+  }
+  to {
+    transform: translatey(0);
+  }
+}
+
+// tablet
+
+@media (max-width: 1024px) {
+  .title h1 {
+    border: 1px solid black;
+    padding-left: 5rem;
+  }
+
+  .home {
+    z-index: 2;
+    .green-circle {
+      border-radius: 50%;
+      width: 30rem;
+      height: 30rem;
+      position: absolute;
+      border: 100px solid $green;
+      top: 7rem;
+      left: 15rem;
+    }
+
+    .yellow-circle {
+      border-radius: 50%;
+      width: 10rem;
+      height: 10rem;
+      position: absolute;
+      border: 40px solid $yellow;
+      top: 70rem;
+      left: 15rem;
+    }
+
+    .blue-circle {
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      border: 20px solid $blue;
+      top: 20rem;
+      left: 1rem;
+    }
+  }
+
+  .img {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  //home page
+  .mobile-nav {
+    display: block;
+    position: relative;
+    bottom: 350px;
+    .mobile {
+      ul {
+        padding: 0;
+        li {
+          list-style: none;
+          margin-bottom: 4rem;
+          @include copy();
+          text-align: center;
+          a {
+            font-size: 2rem;
+            font-weight: bold;
+            background: $yellow;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    padding-top: 20rem;
+    h1 {
+      border: 1px solid black;
+      padding-left: 0;
+      font-size: 6rem;
+      line-height: 6rem;
+      text-align: center;
+    }
+  }
+
+  .main-nav {
+    img {
+      // border: 1px solid red;
+      margin: 0 auto;
+    }
+    ul {
+      display: none;
+    }
+  }
+  .home {
+    z-index: 2;
+    .green-circle {
+      border-radius: 50%;
+      width: 10rem;
+      height: 10rem;
+      position: absolute;
+      border: 40px solid $green;
+      top: 10rem;
+      left: 15rem;
+    }
+
+    .yellow-circle {
+      border-radius: 50%;
+      width: 10rem;
+      height: 10rem;
+      position: absolute;
+      border: 40px solid $yellow;
+      top: 50rem;
+      left: 15rem;
+    }
+
+    .blue-circle {
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      border: 20px solid $blue;
+      top: 20rem;
+      left: 1rem;
+    }
+  }
+
+  //business page
+  .title-business {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  .wrapper {
+    width: 95%;
+    .company {
+      flex-direction: column;
+    }
+    .description {
+      width: 90%;
+      padding: 15px 0 0 0;
+      margin: 0 auto;
+    }
+  }
+
+  .img {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    justify-content: center;
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  .mobile-nav-business {
+    display: block;
+    position: relative;
+    bottom: 0px;
+    .mobile {
+      ul {
+        padding: 0;
+        li {
+          list-style: none;
+          margin-bottom: 4rem;
+          @include copy();
+          text-align: center;
+          a {
+            font-size: 2rem;
+            font-weight: bold;
+            background: $yellow;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  //financial page
+  .financial {
+    h1 {
+      font-size: 4rem;
+      line-height: 4.2rem;
+    }
+  }
+
+  .infographics h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .info {
+    flex-direction: column;
+    .stats {
+      padding: 0 0 2rem 0;
+    }
+  }
+
+  .mobile-nav-financial {
+    display: block;
+    position: relative;
+    bottom: 0px;
+    .mobile {
+      ul {
+        padding: 0;
+        li {
+          list-style: none;
+          margin-bottom: 4rem;
+          @include copy();
+          text-align: center;
+          a {
+            font-size: 2rem;
+            font-weight: bold;
+            background: $yellow;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
